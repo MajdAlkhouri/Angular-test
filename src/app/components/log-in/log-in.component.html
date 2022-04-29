@@ -51,7 +51,7 @@
 
   <h1>Login</h1>
 
- <form [loginForm]="loginForm">
+ <form [formGroup]="loginForm">
    <mat-form-field>
      <input matInput placeholder="Email adresse" formControlName="email" />
      <mat-error *ngIf="email?.errors?.['email']">
