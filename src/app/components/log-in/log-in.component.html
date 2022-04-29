@@ -1,0 +1,72 @@
+<!-- 
+<form class="login-form">
+  <div class="sign-in">
+    <h2>Sign In</h2>
+    <mat-form-field class="form-user">
+      <input matInput placeholder="Username" />
+    </mat-form-field>
+
+    <mat-form-field class="form-user">
+      <mat-label> Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div class="formGroup">
+        <input type="button" class="btn btnPrimary btnClass" value="Log in">
+    </div>
+
+  </div>
+</form>
+
+
+
+<div>
+    <mat-card fxFlex="25">
+        <mat-toolbar> Login Page</mat-toolbar>
+        <form class="example-form">
+            <mat-form-field >
+             
+              <input matInput placeholder="Username" >
+            </mat-form-field>
+            <mat-form-field >
+             
+                <input matInput type="password" placeholder="Password" >
+              </mat-form-field>
+              <button mat-button type="submit">Login</button>               </form>
+          
+
+    </mat-card>
+</div>
+ -->
+ <div class="form-container mat-elevation-z5">
+
+  <h1>Login</h1>
+
+ <form [loginForm]="loginForm">
+   <mat-form-field>
+     <input matInput placeholder="Email adresse" formControlName="email" />
+     <mat-error *ngIf="email?.errors?.['email']">
+       Please enter a correct email format
+     </mat-error>
+   </mat-form-field>
+
+   <mat-form-field>
+    <input matInput placeholder=" Password" formControlName="password" type="password" />
+  </mat-form-field>
+<div class="center margin-top">
+  <button mat-raised-button color="primary" type="submit">Login</button>     
+</div>
+  
+<span class="center margin-top"> New to Slack? <a class="sign-up-link" routerLink="sign-up">Sign Up!</a></span>
+  </form>
+
+ </div>
