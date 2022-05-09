@@ -9,6 +9,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 export class OverlayComponentComponent implements OnInit {
   user: any = '';
   name:any = '';
+  channels:any = []= [];
   
   constructor( public dialog: MatDialog, 
     public dialogRef: MatDialogRef<OverlayComponentComponent>) { }

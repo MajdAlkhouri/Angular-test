@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { OverlayComponentComponent } from 'src/app/overlay-component/overlay-component.component';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { Chat } from 'src/models/chat';
+
 
 
 
@@ -15,7 +15,7 @@ import { Chat } from 'src/models/chat';
 })
 export class HomeComponent implements OnInit {
   users: any = []
-  chats!: Chat[];
+ 
 
   constructor( public dialog: MatDialog, private authService: AuthenticationService) { }
 
