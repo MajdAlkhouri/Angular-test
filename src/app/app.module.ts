@@ -19,6 +19,21 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { HotToastModule } from '@ngneat/hot-toast';
+import {MatMenuModule} from '@angular/material/menu';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCardModule} from '@angular/material/card';
+import { OverlayComponentComponent } from './overlay-component/overlay-component.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ChatsComponent } from './chats/chats.component';
+import { ChannelsComponent } from './channels/channels.component';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -27,8 +42,13 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     LandingComponent,
     SignUpComponent,
     HomeComponent,
+    OverlayComponentComponent,
+    ChatsComponent,
+    ChannelsComponent,
   ],
   imports: [
+  
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     MatInputModule,
@@ -43,6 +63,15 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    HotToastModule.forRoot(),
+    MatMenuModule,
+    MatSliderModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatDialogModule,
+    MatProgressBarModule,
+    MatDatepickerModule,
+
   ],
 
   providers: [],
