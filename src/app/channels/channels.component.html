@@ -1,5 +1,23 @@
-<p>channels works!
-   
-    <div  *ngFor="let channel of channels; let i = index" >
-        <a > {{ channel.name }} </a>
-    </div>
+
+
+<div class="content">
+
+  <div class="channels">
+<input type="text" [(ngModel)]="channel.name">
+
+<button (click)="addChannel()">Send</button>
+
+<div class="channel-container" *ngFor="let channel of channels">
+
+  <a routerLink="/channel/ + channel.customIdName">
+    <span> {{ channel.name }}</span>
+  </a>  
+
+
+</div>
+</div>
+  
+
+</div>
+
+

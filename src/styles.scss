@@ -15,8 +15,9 @@ background-color: rgb(147, 147, 144);
    border-radius: 16px;
 }
 
-.form-container mat-form-field{
-    width: 100%;
+
+.full-Width{
+width: 100%;
 }
 
 .center{
@@ -30,4 +31,9 @@ background-color: rgb(147, 147, 144);
 
 .text-center{
     text-align: center;
+}
+
+.content{
+    display: flex;
+    width: 100%;
 }

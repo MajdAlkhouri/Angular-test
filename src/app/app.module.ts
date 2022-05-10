@@ -30,6 +30,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ChatsComponent } from './chats/chats.component';
 import { ChannelsComponent } from './channels/channels.component';
+import { AngularFireModule } from '@angular/fire/compat';
 
 
 
@@ -60,9 +61,9 @@ import { ChannelsComponent } from './channels/channels.component';
     MatToolbarModule,
     ReactiveFormsModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
     HotToastModule.forRoot(),
     MatMenuModule,
     MatSliderModule,

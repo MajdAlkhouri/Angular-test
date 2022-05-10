@@ -1,11 +1,18 @@
 
 mat-toobar{
+  width: 100%;
     justify-content: space-between
 }
 
-.mat-drawer-container {
-    height: 100vh;
+.user{
+  display: flex;
+  align-items: center;
+
+  span{
+    margin-left: 16px;
   }
+}
+
   
   .menu-icon {
     cursor: pointer;
@@ -27,6 +34,8 @@ mat-toobar{
 
   mat-toolbar,
 mat-toolbar-row {
+  justify-content: space-between;
+  align-items: center;
   min-height: 56px;
   height: 56px;
 }
@@ -69,4 +78,11 @@ mat-toolbar-row {
   height: 60px;
   background-color: rgb(194, 23, 91);
 margin-left: -15px;
+ }
+
+ .content{
+   display: flex;
+   width: 100%;
+   height: 100vh;
+   
  }

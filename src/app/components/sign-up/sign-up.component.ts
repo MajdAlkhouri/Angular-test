@@ -72,7 +72,7 @@ export class SignUpComponent implements OnInit {
           error: ({ message }) => `${message}`
         })
       ).subscribe(() => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
       })
     }
   }

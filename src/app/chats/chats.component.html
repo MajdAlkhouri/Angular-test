@@ -1,1 +1,21 @@
-<p>chats works!</p>
+<div class="content-chats">
+<app-channels></app-channels>
+
+<div class="chats-container">
+  <input type="text" [(ngModel)]="chat.message" /><!--
+      input wert in der variable message 
+    -->
+
+  <button (click)="sendMessage()">Send</button>
+
+  <div class="channel-container" *ngFor="let chat of chats">
+
+    <div class="chat">
+<span>{{ chat.author }}</span>
+  <p>{{ chat.message }}</p> 
+
+  </div>
+  </div>
+</div>
+
+</div>
