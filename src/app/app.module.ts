@@ -24,13 +24,15 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
-import { OverlayComponentComponent } from './overlay-component/overlay-component.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ChatsComponent } from './chats/chats.component';
 import { ChannelsComponent } from './channels/channels.component';
 import { AngularFireModule } from '@angular/fire/compat';
+import { DirektChatComponent } from './direkt-chat/direkt-chat.component';
+import { ThreadsComponent } from './threads/threads.component';
 
 
 
@@ -43,12 +45,16 @@ import { AngularFireModule } from '@angular/fire/compat';
     LandingComponent,
     SignUpComponent,
     HomeComponent,
-    OverlayComponentComponent,
+
     ChatsComponent,
     ChannelsComponent,
+    DirektChatComponent,
+    ThreadsComponent,
   ],
   imports: [
-  
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger', 
+    }),
     CommonModule,
     BrowserModule,
     AppRoutingModule,

@@ -1,21 +1,90 @@
 <div class="content-chats">
-<app-channels></app-channels>
+  <app-channels></app-channels>
 
-<div class="chats-container">
-  <input type="text" [(ngModel)]="chat.message" /><!--
+  <div class="chats-container">
+    <!--
       input wert in der variable message 
     -->
 
-  <button (click)="sendMessage()">Send</button>
+    <div class="channel-container" *ngFor="let chat of chats">
+      <div class="chat">
+        <span class="text">{{ chat.author }}</span>
+        <p>{{ chat.message }}</p>
 
-  <div class="channel-container" *ngFor="let chat of chats">
+        <div class="btn-content">
+          <button
+            class="edit-button"
+            mat-raised-button
+            (click)="showEditContainer(chat)"
+          >
+            EditChat
+          </button>
 
-    <div class="chat">
-<span>{{ chat.author }}</span>
-  <p>{{ chat.message }}</p> 
+          <button      class="edit-button" mat-raised-button (click)="showThread()">
 
+            <a >   Antworten </a>
+         
+          </button>
+         
+       
+    <!-- (click)="showThread()" [routerLink]="['/threads']"-->
+
+          <button
+            class="btn btn-primary"
+            mat-raised-button
+            mat-icon-button
+            mwlConfirmationPopover
+            [popoverTitle]="popoverTitle"
+            placement="left"
+            (confirm)="removeChat(chat)"
+            (cancel)="cancelClicked = true"
+          >
+            Delete
+          </button>
+        </div>
+        <div *ngIf="chat.showAddContainer">
+          <input
+            matInput
+            class="input-message"
+            type="text"
+            [(ngModel)]="editMessage"
+          />
+          <button mat-raised-button (click)="editChat(chat)">Edit</button>
+        </div>
+      </div>
+    </div>
+    <div class="form-contant">
+      <form #messageForm="ngForm">
+        <textarea
+          class="text-input"
+          type="text"
+          [(ngModel)]="chat.message"
+          name="message"
+          placeholder="Enter your Message"
+          required
+          contenteditable="true"
+          spellcheck="true"
+        ></textarea>
+
+        <button
+          class="send-btn"
+          type="submit"
+          (click)="sendMessage()"
+          [class.disabled]="messageForm.invalid"
+          [disabled]="messageForm.invalid"
+        >
+          Send
+        </button>
+      </form>
+    </div>
   </div>
-  </div>
+
+  <div *ngIf="this.showthread" class="thread-Container">
+  <app-threads></app-threads>
 </div>
 
-</div>
+  </div>
+
+<!-- <button mat-raised-button color="primary" (click)="addData()">
+      <mat-icon>add</mat-icon>
+    </button> -->

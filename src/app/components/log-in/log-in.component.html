@@ -1,9 +1,9 @@
-
+<div class="login-content">
  <div class="form-container mat-elevation-z5">
 
   <h1>Login</h1>
 
- <form [formGroup]="loginForm" (ngSubmit)="submit()">
+ <form class="form-container" [formGroup]="loginForm" (ngSubmit)="submit()">
    <mat-form-field>
      <input matInput placeholder="Email adresse" formControlName="email" />
      <mat-error *ngIf="email?.errors?.['email']">
@@ -15,7 +15,7 @@
     <input matInput placeholder=" Password" formControlName="password" type="password" />
   </mat-form-field>
 <div class="center margin-top">
-  <button mat-raised-button color="primary" type="submit">Login</button>     
+  <button mat-raised-button class="LOGIN-BTN" type="submit">Login</button>     
 </div>
   
 <span class="center margin-top"> New to Slack? <a class="sign-up-link" routerLink="/Signup">Sign Up!</a></span>
@@ -23,7 +23,7 @@
 
  </div>
 
-
+</div>
  <!--
     openDialog(){
     const dialogRef =  this.dialog.open(OverlayComponentComponent);

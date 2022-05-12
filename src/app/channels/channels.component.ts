@@ -22,7 +22,7 @@ export class ChannelsComponent implements OnInit {
 
   ngOnInit(): void {
     this.firestore.collection('channels')
-      .valueChanges({ idField: 'customIdName' })//wenn etwas ändert
+      .valueChanges({ idField: 'channelChatId' })//wenn etwas ändert
       .subscribe((changes: any) => { //daten holen
         this.channels = changes; // changes in array channels pushen
         console.log(this.channels);

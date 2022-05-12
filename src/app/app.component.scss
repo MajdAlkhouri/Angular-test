@@ -1,7 +1,9 @@
 
 mat-toobar{
   width: 100%;
-    justify-content: space-between
+    justify-content: space-between;
+    background-color: rgb(4, 54, 255);
+
 }
 
 .user{
@@ -19,9 +21,7 @@ mat-toobar{
   }
 
 
-.sidenav {
-    width: 300px;
-  }
+
   
   .logo-container {
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
@@ -38,6 +38,7 @@ mat-toolbar-row {
   align-items: center;
   min-height: 56px;
   height: 56px;
+  background-color: rgb(4, 54, 255);
 }
 
 .menu-items {
@@ -58,7 +59,7 @@ mat-toolbar-row {
     }
 
     &:hover {
-      background-color: rgb(194, 23, 91);
+      background-color:rgb(4, 54, 255);
     }
 
     &:focus{
@@ -76,7 +77,7 @@ mat-toolbar-row {
 .logo{
  max-width: 90%;
   height: 60px;
-  background-color: rgb(194, 23, 91);
+  background-color:rgb(4, 54, 255);
 margin-left: -15px;
  }
 
