@@ -42,14 +42,14 @@
             Delete
           </button>
         </div>
-        <div *ngIf="chat.showAddContainer">
+        <div class="edit-contain" *ngIf="chat.showAddContainer">
           <input
             matInput
             class="input-message"
             type="text"
             [(ngModel)]="editMessage"
           />
-          <button mat-raised-button (click)="editChat(chat)">Edit</button>
+          <button class="edit-button2" mat-raised-button (click)="editChat(chat)">Edit</button>
         </div>
       </div>
     </div>

@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Chat } from 'src/models/chats.class';
 import { AuthenticationService } from '../services/authentication.service';
-import { ThreadsComponent } from '../threads/threads.component';
 
 @Component({
   selector: 'app-chats',
@@ -62,6 +61,7 @@ public cancelClicked:boolean = false;
      
     })
     this.clearChannel();
+    this.showthread = false;
   }
 
   clearChannel() {
@@ -91,6 +91,13 @@ public cancelClicked:boolean = false;
   showThread(){
     this.showthread = true;
     console.log(this.showthread);
+
+    this.firestore
+    .collection('threads', ref => ref.where('chatChannelId', '==', this.channelId))
+    .valueChanges({ idField: 'customIdName' })
+    .subscribe((threads: any) => {
+      
+    })
  
 
   }

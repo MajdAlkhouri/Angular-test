@@ -1,9 +1,13 @@
 export class Threads {
-    public author: string = '';
+  
     public text: string = '';
     public chatId: string  = '';
   
     public id: string  = ''; //User ID From FIRESTORE COLLECTION USERS
+
+    message: String;
+    author: string;
+    chatChannelId: string;
    
 
     constructor(obj?: any) {
@@ -12,6 +16,10 @@ export class Threads {
         this.chatId = obj ? obj.chatId : '';
    
         this.id = obj ? obj.id : '';
+
+        this. message = obj ? obj. message : '';
+        this. author = obj ? obj. author : '';
+        this. chatChannelId = obj ? obj. channelChatId : '';
      
     }
 
@@ -23,6 +31,11 @@ export class Threads {
             chatId: this.chatId,
          
             id: this.id,
+
+            message: this. message,
+            
+            chatChannelId: this.chatChannelId,
+            
       
         };
     }

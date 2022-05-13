@@ -1,1 +1,31 @@
-Hallo
+
+<div class="chat"  *ngFor="let chat of chats">
+    <span class="text">{{ chat.author }}</span>
+    <p>{{chat.message }}</p>
+  
+    <div class="form-contant">
+        <form #messageForm="ngForm">
+          <textarea
+            class="text-input"
+            type="text"
+        
+            name="message"
+            placeholder="Enter your Message"
+            required
+            contenteditable="true"
+            spellcheck="true"
+          ></textarea>
+  
+          <button
+            class="send-btn"
+            type="submit"
+            (click)="sendtMessage()"
+            [class.disabled]="messageForm.invalid"
+            [disabled]="messageForm.invalid"
+          >
+            Send
+          </button>
+        </form>
+      </div>
+
+</div>
