@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
+import { Chat } from 'src/models/chats.class';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,8 @@ import { AuthenticationService } from './services/authentication.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+
+
   title(title: any) {
     throw new Error('Method not implemented.');
   }

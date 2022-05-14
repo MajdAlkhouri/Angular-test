@@ -1,12 +1,15 @@
 <div class="content-chats">
+ <div class="link-content">
   <app-channels></app-channels>
 
+  <app-direkt-chat [data]="message"></app-direkt-chat>
+</div>
   <div class="chats-container">
     <!--
       input wert in der variable message 
     -->
 
-    <div class="channel-container" *ngFor="let chat of chats">
+    <div class="channel-container" *ngFor="let chat of chats let i = index">
       <div class="chat">
         <span class="text">{{ chat.author }}</span>
         <p>{{ chat.message }}</p>
@@ -20,7 +23,7 @@
             EditChat
           </button>
 
-          <button      class="edit-button" mat-raised-button (click)="showThread()">
+          <button class="edit-button" mat-raised-button (click)="showThread()">
 
             <a >   Antworten </a>
          

@@ -13,8 +13,10 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./chats.component.scss']
 })
 export class ChatsComponent implements OnInit {
+  message = "User";
 
 public  popoverTitle = 'löschen ? ';
+public  currentThread = 0; //!!!
 
 public  confirmClicked:boolean = false;
 public cancelClicked:boolean = false;
@@ -25,6 +27,7 @@ public cancelClicked:boolean = false;
   editMessage ! : string ;
   showAddContainer: boolean=false;
   showthread: boolean=false;
+  
 
   constructor(  public dialog: MatDialog,
     private firestore:AngularFirestore,public authService: AuthenticationService,
@@ -58,7 +61,7 @@ public cancelClicked:boolean = false;
       message: this.chat.message,
       author: userName,
       chatChannelId: this.channelId,
-     
+      
     })
     this.clearChannel();
     this.showthread = false;
@@ -89,6 +92,7 @@ public cancelClicked:boolean = false;
   }
 
   showThread(){
+   // this.currentThread = index;
     this.showthread = true;
     console.log(this.showthread);
 

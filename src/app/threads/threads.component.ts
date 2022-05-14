@@ -17,7 +17,9 @@ export class ThreadsComponent implements OnInit {
   channelId:any = "";
   chats : any  = [] = [];
   threads : any  = [] = [];
-  clickedChat!: any;
+  currentThread='';
+  index : any  = [] = [];
+  
 
 
   constructor( private firestore:AngularFirestore,public authService: AuthenticationService,
@@ -38,8 +40,8 @@ export class ThreadsComponent implements OnInit {
 
   }
 
-  showThreads(){
-  
+  showThreads(index: string){
+    this.currentThread = index;
   //  .add(this.channel.toJson())// in json umwandeln
     //.then((result: any) => {
     
