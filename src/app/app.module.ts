@@ -34,6 +34,9 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { DirektChatComponent } from './direkt-chat/direkt-chat.component';
 import { ThreadsComponent } from './threads/threads.component';
 
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
+
 
 
 
@@ -52,6 +55,7 @@ import { ThreadsComponent } from './threads/threads.component';
     ThreadsComponent,
   ],
   imports: [
+    AngularFireStorageModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', 
     }),
@@ -78,6 +82,18 @@ import { ThreadsComponent } from './threads/threads.component';
     MatDialogModule,
     MatProgressBarModule,
     MatDatepickerModule,
+   
+AngularFireModule.initializeApp({
+  apiKey: "AIzaSyAWNJlpU1y_A7jm2aJtjmFomo6DVWotL5I",
+  authDomain: "angular-sign-in-a034b.firebaseapp.com",
+//databaseURL: "https://angular-sign-in-a034b-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "angular-sign-in-a034b",
+  storageBucket: "angular-sign-in-a034b.appspot.com",
+  messagingSenderId: "566786025529",
+  appId: "1:566786025529:web:046f30e4b6c018e24385e8"
+}),
+
+
 
   ],
 

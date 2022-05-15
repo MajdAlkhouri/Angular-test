@@ -3,7 +3,9 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Chat } from 'src/models/chats.class';
+import { threadId } from 'worker_threads';
 import { AuthenticationService } from '../services/authentication.service';
+import {AngularFireStorage} from '@angular/fire/compat/storage'
 
 @Component({
   selector: 'app-chats',
@@ -27,11 +29,13 @@ public cancelClicked:boolean = false;
   editMessage ! : string ;
   showAddContainer: boolean=false;
   showthread: boolean=false;
+  filePath:String
   
 
   constructor(  public dialog: MatDialog,
     private firestore:AngularFirestore,public authService: AuthenticationService,
     private activatedRoute: ActivatedRoute,
+    private afStorage: AngularFireStorage,
 
     ) { }
 
@@ -104,6 +108,16 @@ public cancelClicked:boolean = false;
     })
  
 
+  }
+
+  upload(event){
+    this.filePath = event.target.files[0]
+  }
+
+  uploadImage(){
+    console.log(this.filePath)
+    this.afStorage.upload('/images'+Math.random()+this.filePath, this.filePath);
+    
   }
 
 }

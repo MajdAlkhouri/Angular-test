@@ -28,6 +28,12 @@
             <a >   Antworten </a>
          
           </button>
+
+          <button class="edit-button" mat-raised-button >
+
+            <a >   foto </a>
+         
+          </button>
          
        
     <!-- (click)="showThread()" [routerLink]="['/threads']"-->
@@ -86,8 +92,14 @@
   <app-threads></app-threads>
 </div>
 
+<div>
+  <label for="Image">image file</label>
+  <input type="file" (change)="upload($event)" accept="*.png.jpg" id="">     
+  <button mat-raised-button (click)="uploadImage()" color="primary">
+    <mat-icon>add</mat-icon>
+  </button> 
+</div>
+
   </div>
 
-<!-- <button mat-raised-button color="primary" (click)="addData()">
-      <mat-icon>add</mat-icon>
-    </button> -->
+
