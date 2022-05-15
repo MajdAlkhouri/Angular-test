@@ -40,22 +40,7 @@ export class ThreadsComponent implements OnInit {
 
   }
 
-  showThreads(index: string){
-    this.currentThread = index;
-  //  .add(this.channel.toJson())// in json umwandeln
-    //.then((result: any) => {
-    
-   // })
-    console.log(this.chat);
-    let userName = this.authService.currentUser.displayName;
-    this.firestore.collection('threads')
-    .add({
-      message: this.chat.message,
-      author: userName,
- 
-     
-    })
-  }
+  
 
   sendtMessage(){
 

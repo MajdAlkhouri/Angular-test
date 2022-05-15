@@ -95,8 +95,9 @@ public cancelClicked:boolean = false;
     chat.showAddContainer = true;
   }
 
-  showThread(){
-   // this.currentThread = index;
+  showThread(index : any){
+    this.currentThread = index;
+    console.log(index);
     this.showthread = true;
     console.log(this.showthread);
 

@@ -1,5 +1,5 @@
 
-<div class="chat"  *ngFor="let chat of chats">
+<div class="chat"  *ngFor="let chat of chats let i = index">
     <span class="text">{{ chat.author }}</span>
     <p>{{chat.message }}</p>
   
