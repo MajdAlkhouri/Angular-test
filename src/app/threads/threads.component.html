@@ -1,25 +1,25 @@
-
-<div class="chat"  *ngFor="let chat of chats let i = index">
-    <span class="text">{{ chat.author }}</span>
-    <p>{{chat.message }}</p>
+<h1>Threads</h1>
+<div class="chat"  *ngFor="let thread of threads ">
+    <span class="text">{{ thread.author }}</span>
+    <p>{{thread.message }}</p>
   
     <div class="form-contant">
         <form #messageForm="ngForm">
           <textarea
-            class="text-input"
-            type="text"
+          class="text-input"
+          type="text"
+          [(ngModel)]="thread.message"
+          name="message"
+          placeholder="Enter your Message"
+          required
+          contenteditable="true"
+          spellcheck="true"
+        ></textarea>
         
-            name="message"
-            placeholder="Enter your Message"
-            required
-            contenteditable="true"
-            spellcheck="true"
-          ></textarea>
-  
           <button
             class="send-btn"
             type="submit"
-            (click)="sendtMessage()"
+            (click)="sendMessage()"
             [class.disabled]="messageForm.invalid"
             [disabled]="messageForm.invalid"
           >

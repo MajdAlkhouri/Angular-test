@@ -11,9 +11,9 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class DirektChatComponent implements OnInit {
 
-  authors : any = [] = [];
+
   chat = new Chat(); 
-  chats : any  = [] = [];
+
   @Input() data:string;
 
   constructor(

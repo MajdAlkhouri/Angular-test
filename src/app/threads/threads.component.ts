@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { collection } from 'firebase/firestore';
 import { Chat } from 'src/models/chats.class';
 import { Threads } from 'src/models/threads.class';
 import { AuthenticationService } from '../services/authentication.service';
@@ -8,42 +9,49 @@ import { AuthenticationService } from '../services/authentication.service';
 @Component({
   selector: 'app-threads',
   templateUrl: './threads.component.html',
-  styleUrls: ['./threads.component.scss']
+  styleUrls: ['./threads.component.scss'],
 })
-export class ThreadsComponent implements OnInit {
-  thread = new Threads();
-  message!: string;
-  chat = new Chat(); 
-  channelId:any = "";
-  chats : any  = [] = [];
-  threads : any  = [] = [];
-  currentThread='';
-  index : any  = [] = [];
-  
+export class ThreadsComponent implements OnInit, OnChanges {
+
+ 
+  channelId: any = '';
+  chats: any = [] = [];
+  threads: any = [] = [];
+  index: any = ([] = []);
+  chat = new Chat();
 
 
-  constructor( private firestore:AngularFirestore,public authService: AuthenticationService,
-    private activatedRoute: ActivatedRoute,
-    ) { }
+ @Input() thread !: any; 
+
+  constructor(
+    private firestore: AngularFirestore,
+    public authService: AuthenticationService,
+    private activatedRoute: ActivatedRoute
+  ) {}
+
 
   ngOnInit(): void {
-
-     this.activatedRoute.paramMap.subscribe((param) => {
-      this.channelId = param.get('id');
-      
-      this.firestore.collection('chats', ref => ref.where('chatChannelId', '==', this.channelId))
-        .valueChanges({ idField: 'customIdName' })
-        .subscribe((changes: any) => {
-          this.chats = changes;
-        })
-    })
-
-  }
-
   
-
-  sendtMessage(){
-
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+   console.log(changes);
+   this.firestore
+   .collection('threads', (ref) =>
+     ref.where('chatID', '==', this.thread.customIdName)
+   )
+   .valueChanges({ idField: 'customIdName' })
+   .subscribe((changes: any) => {
+     this.threads = changes;
+   });
+  }
+
+  sendMessage() {
+    this.firestore.collection('threads').add(
+      {
+        chatID : this.thread.customIdName,
+        message: "hhfd",
+      }
+    )
+  }
 }

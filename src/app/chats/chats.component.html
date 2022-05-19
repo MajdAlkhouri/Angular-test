@@ -1,15 +1,15 @@
 <div class="content-chats">
- <div class="link-content">
-  <app-channels></app-channels>
+  <div class="link-content">
+    <app-channels></app-channels>
 
-  <app-direkt-chat [data]="message"></app-direkt-chat>
-</div>
+    <app-direkt-chat ></app-direkt-chat>
+  </div>
   <div class="chats-container">
     <!--
       input wert in der variable message 
     -->
 
-    <div class="channel-container" *ngFor="let chat of chats let i = index">
+    <div class="channel-container" *ngFor="let chat of chats">
       <div class="chat">
         <span class="text">{{ chat.author }}</span>
         <p>{{ chat.message }}</p>
@@ -23,20 +23,26 @@
             EditChat
           </button>
 
-          <button class="edit-button" mat-raised-button (click)="showThread(i)">
-
-            <a >   Antworten </a>
-         
+          <button
+            class="edit-button"
+            mat-raised-button
+            (click)="showThread(chat)"
+          >
+            <a> Antworten </a>
           </button>
 
-          <button class="edit-button" mat-raised-button >
-
-            <a >   foto </a>
-         
-          </button>
-         
-       
-    <!-- (click)="showThread()" [routerLink]="['/threads']"-->
+          <div>
+            <input
+              type="file"
+              (change)="upload($event)"
+              accept="*.png.jpg"
+              id=""
+            />
+            <button mat-raised-button (click)="uploadImage()">
+              <mat-icon>add_photo_alternate</mat-icon>
+            </button>
+          </div>
+          <!-- (click)="showThread()" [routerLink]="['/threads']"-->
 
           <button
             class="btn btn-primary"
@@ -58,7 +64,13 @@
             type="text"
             [(ngModel)]="editMessage"
           />
-          <button class="edit-button2" mat-raised-button (click)="editChat(chat)">Edit</button>
+          <button
+            class="edit-button2"
+            mat-raised-button
+            (click)="editChat(chat)"
+          >
+            Edit
+          </button>
         </div>
       </div>
     </div>
@@ -88,18 +100,7 @@
     </div>
   </div>
 
-  <div *ngIf="this.showthread" class="thread-Container">
-  <app-threads></app-threads>
-</div>
-
-<div>
-  <label for="Image">image file</label>
-  <input type="file" (change)="upload($event)" accept="*.png.jpg" id="">     
-  <button mat-raised-button (click)="uploadImage()" color="primary">
-    <mat-icon>add</mat-icon>
-  </button> 
-</div>
-
+  <div *ngIf="isShowingThread" class="thread-Container">
+    <app-threads [thread]="currentThread"></app-threads>
   </div>
-
-
+</div>
