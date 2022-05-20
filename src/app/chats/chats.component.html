@@ -101,6 +101,6 @@
   </div>
 
   <div *ngIf="isShowingThread" class="thread-Container">
-    <app-threads [thread]="currentThread"></app-threads>
+    <app-threads [thread]="threadService.currentThread"></app-threads>
   </div>
 </div>

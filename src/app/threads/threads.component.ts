@@ -5,6 +5,7 @@ import { collection } from 'firebase/firestore';
 import { Chat } from 'src/models/chats.class';
 import { Threads } from 'src/models/threads.class';
 import { AuthenticationService } from '../services/authentication.service';
+import { ThreadService } from '../services/thread.service';
 
 @Component({
   selector: 'app-threads',
@@ -26,7 +27,8 @@ export class ThreadsComponent implements OnInit, OnChanges {
   constructor(
     private firestore: AngularFirestore,
     public authService: AuthenticationService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public  threadService: ThreadService,
   ) {}
 
 

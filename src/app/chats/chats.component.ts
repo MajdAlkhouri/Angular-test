@@ -6,6 +6,7 @@ import { Chat } from 'src/models/chats.class';
 import { threadId } from 'worker_threads';
 import { AuthenticationService } from '../services/authentication.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { ThreadService } from '../services/thread.service';
 
 @Component({
   selector: 'app-chats',
@@ -35,7 +36,8 @@ export class ChatsComponent implements OnInit {
     private firestore: AngularFirestore,
     public authService: AuthenticationService,
     private activatedRoute: ActivatedRoute,
-    private afStorage: AngularFireStorage
+    private afStorage: AngularFireStorage,
+    public  threadService: ThreadService,
   ) {}
 
   ngOnInit(): void {
@@ -100,6 +102,8 @@ export class ChatsComponent implements OnInit {
     this.currentThread = thread;
 
     this.isShowingThread = true;
+
+    this.threadService.currentThread= this.channelId;
 
     //this.firestore
     // .collection('threads', ref => ref.where('chatChannelId', '==', this.channelId))
