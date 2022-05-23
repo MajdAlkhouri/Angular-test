@@ -40,7 +40,7 @@ export class ThreadsComponent implements OnInit, OnChanges {
    console.log(changes);
    this.firestore
    .collection('threads', (ref) =>
-     ref.where('chatID', '==', this.thread.customIdName)
+     ref.where('chatID', '==', this.thread)
    )
    .valueChanges({ idField: 'customIdName' })
    .subscribe((changes: any) => {
@@ -51,7 +51,7 @@ export class ThreadsComponent implements OnInit, OnChanges {
   sendMessage() {
     this.firestore.collection('threads').add(
       {
-        chatID : this.thread.customIdName,
+        chatID : this.thread,
         message: "hhfd",
       }
     )
